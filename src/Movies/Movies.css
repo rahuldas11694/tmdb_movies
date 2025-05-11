@@ -1,0 +1,4 @@
+.card-parent{
+    display:flex;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,20 @@
+.card{
+/*     width: 300px;
+    height: 300px; */
+    position: relative;
+}
+.card-img img{
+    width:300px;
+    height: 300px;
+}
+.card-title{
+    position:absolute;
+    background: black;
+    opacity: 0.7;
+    color:red;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    text-align: center;
+}
