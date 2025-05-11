@@ -5,7 +5,7 @@ import "./Movies.css";
 function Movies(){
 
     const [movies, setMovies] = useState ([]);
-    const GET_MOVIES_URL = "https://api.themoviedb.org/3/trending/movie/day?api_key=12345";
+    const GET_MOVIES_URL = "https://api.themoviedb.org/3/trending/movie/day?api_key=c032ea4288a61c2d0ab394807d522c90";
     console.log("Movies called");
 
 
