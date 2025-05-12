@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import MovieCard from "../MovieCard";
 import "./Movies.css";
 import Banner from "../Banner";
+import Details from "../Details";
 
 function Movies(){
 
@@ -27,7 +28,6 @@ function Movies(){
     // 2. then use effect is called and the setMovies is called and again after state change of movies the component re-renders with data and calling the moviescard 
     return (
         <>
-            <Banner/>
             <h1>Trending Movies</h1>
             <div className="card-parent">
                 {

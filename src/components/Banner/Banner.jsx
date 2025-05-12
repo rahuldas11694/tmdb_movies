@@ -6,7 +6,7 @@ function Banner(){
     // let [films, setFilms] = useState([]);
     let [film, setFilm] = useState([]);
 
-    const GET_MOVIES_URL = "https://api.themoviedb.org/3/trending/movie/day?api_key=kjhg";
+    const GET_MOVIES_URL = "https://api.themoviedb.org/3/trending/movie/day?api_key=c032ea4288a61c2d0ab394807d522c90";
     console.log("Banner called");
     
     useEffect(() => {

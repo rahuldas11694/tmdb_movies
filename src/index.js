@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Movies from './components/Movies';
+// import Movies from './components/Movies';
+import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Movies />
+    <App />
   </React.StrictMode>
 );
 
