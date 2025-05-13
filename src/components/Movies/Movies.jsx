@@ -3,13 +3,32 @@ import MovieCard from "../MovieCard";
 import "./Movies.css";
 import Banner from "../Banner";
 import Details from "../Details";
+import Pagination from "../Pagination";
 
 function Movies(){
 
     const [movies, setMovies] = useState ([]);
-    const GET_MOVIES_URL = "https://api.themoviedb.org/3/trending/movie/day?api_key=c032ea4288a61c2d0ab394807d522c90";
+    let [pageNo, setPageNo] = useState(1);
+
+    const GET_MOVIES_URL = `https://api.themoviedb.org/3/trending/movie/day?api_key=c032ea4288a61c2d0ab394807d522c90&page=${pageNo}`;
     console.log("Movies called");
 
+    function handleNext(){
+        console.info("Next page");
+        if(pageNo > 500) return;
+        setPageNo(pageNo+1);
+
+    }
+
+    function handlePrev(){
+        console.info("Prev page");
+        if(pageNo === 1) return;
+        setPageNo(pageNo-1);
+    }
+
+    useEffect(function(){
+        console.log("extra effect");
+    }, [pageNo]);
 
     useEffect(() => {
         
@@ -21,9 +40,10 @@ function Movies(){
             setMovies(res.results);
         });
 
-    }, []);  // empty array for 1 time call only i.e component mount and it causes the component re-render again
+    }, [pageNo]);
+      // empty array for 1 time call only i.e component mount and it causes the component re-render again
     // if empty array is not added then the component will be called on every mounting and unmounting
-
+    // AND EVERY COMPONENT ATLEAST GETS CALLED ONCE IRRESPECTIVE OD DEP ARRAY
     // 1. first this component renders without data in movies
     // 2. then use effect is called and the setMovies is called and again after state change of movies the component re-renders with data and calling the moviescard 
     return (
@@ -36,6 +56,11 @@ function Movies(){
                    })
                 }
             </div>
+            <Pagination 
+            handleNext={handleNext}
+            handlePrev={handlePrev}
+            pageNo={pageNo}
+            />
         </>
     );
 }

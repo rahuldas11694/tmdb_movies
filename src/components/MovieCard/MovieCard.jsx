@@ -2,7 +2,7 @@ import "./MovieCard.css";
 
 function MovieCard({movie}){
 
-    console.log("MovieCard called");
+    // console.log("MovieCard called");
 
     return (
         
