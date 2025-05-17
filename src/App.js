@@ -8,6 +8,7 @@ import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
 import MovieContext from './context/MovieContext';
 import { useState } from 'react';
+import WatchListPage from './pages/WatchListPage/WatchListPage';
 
 
 
@@ -32,7 +33,7 @@ function App() {
 
   return (
     <div className='App'>
-      <MovieContext.Provider value={{watchlist, handleAddToWatchList, handleRemoveFromWatchList}} >
+      <MovieContext.Provider value={{watchlist, setWatchlist, handleAddToWatchList, handleRemoveFromWatchList}} >
         <BrowserRouter>
           <Switch>
             <Route
@@ -46,6 +47,12 @@ function App() {
               exact={true}
               component={DetailsPage}
             />
+
+            <Route 
+             path="/watchlist"
+             exact={true}
+             component={WatchListPage}
+             />
 
             <Route component={NotFoundPage}></Route>
             

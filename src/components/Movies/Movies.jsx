@@ -4,14 +4,15 @@ import "./Movies.css";
 import Banner from "../Banner";
 import Details from "../Details";
 import Pagination from "../Pagination";
+import { Link } from "react-router-dom/cjs/react-router-dom";
 
 function Movies(){
+    console.log('Movies Component')
 
     const [movies, setMovies] = useState ([]);
     let [pageNo, setPageNo] = useState(1);
 
     const GET_MOVIES_URL = `https://api.themoviedb.org/3/trending/movie/day?api_key=c032ea4288a61c2d0ab394807d522c90&page=${pageNo}`;
-    console.log("Movies called");
 
     function handleNext(){
         console.info("Next page");
@@ -48,7 +49,7 @@ function Movies(){
     // 2. then use effect is called and the setMovies is called and again after state change of movies the component re-renders with data and calling the moviescard 
     return (
         <>
-            <h1>Trending Movies</h1>
+            <h1>Trending Movies | <Link to="/watchlist">Watchlist</Link> </h1>
             <div className="card-parent">
                 {
                    movies.map((movie) => {

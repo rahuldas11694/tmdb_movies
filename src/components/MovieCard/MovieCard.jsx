@@ -1,11 +1,12 @@
 import MovieContext from "../../context/MovieContext";
 import "./MovieCard.css";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 function MovieCard({movie}){
 
-    const movieContext = useContext(MovieContext);
-    // console.log("Movie Card:", movieContext);
+    let movieContext = useContext(MovieContext);
+    // let {watchlist, handleAddToWatchList, handleRemoveFromWatchList} = useContext(MovieContext);
+    console.log("Movie Card:");
 
     function handleAdd2WL(){
         console.log("handleAdd2WL :: ", movie);
@@ -20,10 +21,10 @@ function MovieCard({movie}){
     function isInWl(movie){
 
         let filteredWl = movieContext.watchlist.filter((wl) => {
-            return wl.id == movie.id;
+            return wl.id === movie.id;
         })
         
-        if(filteredWl.length == 1 ){
+        if(filteredWl.length === 1 ){
             return true;
         }
         return false;
