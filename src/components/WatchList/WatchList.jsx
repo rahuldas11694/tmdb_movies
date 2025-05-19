@@ -3,10 +3,17 @@ import { useContext, useState } from "react";
 import MovieContext from "../../context/MovieContext";
 import "./WatchList.css";
 
+import { useSelector } from "react-redux";
+
 function WatchList(){
 
     const movieContext = useContext(MovieContext);
-    const watchlist = movieContext.watchlist;
+    // const watchlist = movieContext.watchlist;
+    let watchlist = useSelector(state => {
+        console.log("Watchlist | useSelector | state", state);
+        return state.watchlist;
+    });
+
     const[search, setSearch] = useState("");
     console.log("Watchlist");
 
@@ -19,7 +26,8 @@ function WatchList(){
         let sortAsc = watchlist.sort((movieObjA, movieObjB) => {
             return movieObjA.vote_average - movieObjB.vote_average
         });
-        console.log("handleAscSort", sortAsc, movieContext)
+        console.log("handleAscSort", sortAsc, movieContext);
+        
         // everytime my watchlist is changed my APP shuold get re-rendered, 
         // but setting the watchlist doesnt cause App re-render
         

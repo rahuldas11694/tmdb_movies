@@ -18,7 +18,7 @@ function App() {
 
   function handleAddToWatchList(movie){
     console.log("handleAddToWatchList", movie);
-    setWatchlist([...watchlist, movie]);
+    setWatchlist([...watchlist, movie]); // this is to append and not creating a new reference
     // console.log("setting watchlist", watchlist);
   }
 
